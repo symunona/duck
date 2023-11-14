@@ -26,16 +26,24 @@ recognition.continuous = true
 
 let timer
 
+recognition.addEventListener('soundstart', (evt)=>console.log('soundstart', evt))
+recognition.addEventListener('soundend', (evt)=>console.log('soundend', evt))
+recognition.addEventListener('audiostart', (evt)=>console.log('audiostart', evt))
+recognition.addEventListener('audioend', (evt)=>console.log('audioend', evt))
+recognition.addEventListener('speechstart', (evt)=>console.log('speechstart', evt))
+recognition.addEventListener('speechend', (evt)=>console.log('speechend',evt))
+recognition.addEventListener('nomatch', (evt)=>console.log('nomatch', evt))
+recognition.addEventListener('end', (evt)=>console.log('end', evt))
+
 recognition.addEventListener('soundstart', ()=>{
     // recognition.start()
-    // console.log('start')
+    console.log('soundstart')
     if (timer){
         timer.clearTimeout(timer)
     }
 })
 
 function tick() {
-    console.warn('soundend')
     if (timer) {
         clearTimeout(timer)
     }
